@@ -1,35 +1,126 @@
-<form name="gpaform" action="/gpa-calculator.html"><table class="panel"><tbody><tr><td><div id="semester1" style="display:none;"><div id="sectitle">Semester 1</div></div><table><tbody><tr><td align="center"><b>Course</b> (optional)</td><td align="center"><b>Credits</b></td><td align="center"><b>Grade</b></td></tr><tr><td><input type="text" name="da1" class="inlonger" value="Math"></td><td><input type="text" name="ca1" value="3" class="innormal"></td><td><select name="la1" style="display: block;"><option value="">&nbsp;-</option><option value="a+">A+</option><option value="a" selected="">A</option><option value="a-">A-</option><option value="b+">B+</option><option value="b">B</option><option value="b-">B-</option><option value="c+">C+</option><option value="c">C</option><option value="c-">C-</option><option value="d+">D+</option><option value="d">D</option><option value="d-">D-</option><option value="f">F</option><option value="p">P</option><option value="np">NP</option></select><input type="text" name="sa1" value="" class="in4char" style="display:none;"></td></tr></tbody></table><table><tbody><tr><td><input type="text" name="da2" class="inlonger" value="English"></td><td><input type="text" name="ca2" value="3" class="innormal"></td><td><select name="la2" style="display: block;"><option value="">&nbsp;-</option><option value="a+">A+</option><option value="a">A</option><option value="a-">A-</option><option value="b+" selected="">B+</option><option value="b">B</option><option value="b-">B-</option><option value="c+">C+</option><option value="c">C</option><option value="c-">C-</option><option value="d+">D+</option><option value="d">D</option><option value="d-">D-</option><option value="f">F</option><option value="p">P</option><option value="np">NP</option></select><input type="text" name="sa2" value="" class="in4char" style="display:none;"></td></tr></tbody></table><table><tbody><tr><td><input type="text" name="da3" class="inlonger" value="History"></td><td><input type="text" name="ca3" value="2" class="innormal"></td><td><select name="la3" style="display: block;"><option value="">&nbsp;-</option><option value="a+">A+</option><option value="a">A</option><option value="a-" selected="">A-</option><option value="b+">B+</option><option value="b">B</option><option value="b-">B-</option><option value="c+">C+</option><option value="c">C</option><option value="c-">C-</option><option value="d+">D+</option><option value="d">D</option><option value="d-">D-</option><option value="f">F</option><option value="p">P</option><option value="np">NP</option></select><input type="text" name="sa3" value="" class="in4char" style="display:none;"></td></tr></tbody></table><table><tbody><tr><td><input type="text" name="da4" class="inlonger" value=""></td><td><input type="text" name="ca4" value="" class="innormal"></td><td><select name="la4" style="display: block;"><option value="">&nbsp;-</option><option value="a+">A+</option><option value="a">A</option><option value="a-">A-</option><option value="b+">B+</option><option value="b">B</option><option value="b-">B-</option><option value="c+">C+</option><option value="c">C</option><option value="c-">C-</option><option value="d+">D+</option><option value="d">D</option><option value="d-">D-</option><option value="f">F</option><option value="p">P</option><option value="np">NP</option></select><input type="text" name="sa4" value="" class="in4char" style="display:none;"></td></tr></tbody></table><table><tbody><tr><td><input type="text" name="da5" class="inlonger" value=""></td><td><input type="text" name="ca5" value="" class="innormal"></td><td><select name="la5" style="display: block;"><option value="">&nbsp;-</option><option value="a+">A+</option><option value="a">A</option><option value="a-">A-</option><option value="b+">B+</option><option value="b">B</option><option value="b-">B-</option><option value="c+">C+</option><option value="c">C</option><option value="c-">C-</option><option value="d+">D+</option><option value="d">D</option><option value="d-">D-</option><option value="f">F</option><option value="p">P</option><option value="np">NP</option></select><input type="text" name="sa5" value="" class="in4char" style="display:none;"></td></tr></tbody></table><div id="coursemorea"><input type="hidden" name="na" value="5"></div><div style="text-align:center;padding-top:8px;"><a href="#" onclick="return addCourse('a');">+ add more courses</a></div><div id="semestermore" style="display: none;"></div>
+# CP Class
+#Lists 
+classes= []
+grades = []
 
-<div id="semestermoreadd" style="text-align: center; padding-top: 8px; display: none;"><a href="#" onclick="return addSemester();">+ add a semester</a></div>
+#Collects the data of Class names and Grades in Letter Form
+def collect():
+    i = 0
+    while (i <= 5):
+        className = input("Enter Class Name: ")
+        classes.append(className)
+        i = i +1
 
-<div id="priorsemesters" style="display:none;padding-top:10px;">
-	<div id="sectitle">Prior Semester's GPA (optional)</div>
-	<table align="center">
-		<tbody><tr><td>Prior Semester's GPA</td><td><input type="text" name="pgpa" value="" class="innormal"></td></tr>
-		<tr><td>Credits Completed</td><td><input type="text" name="pcredit" value="" class="innormal"></td></tr>
-	</tbody></table>
-</div>
-<div id="gpasettings" style="display:none;padding-top:10px;">
-	<div id="sectitle">Settings <img src="/img/close.png" width="18" height="18" align="right" onclick="document.getElementById('gpasettings').style.display='none';return false;"></div>
-		<table align="center">
-			<tbody><tr><td valign="top" style="padding-top:7px;">Grade Format:</td><td>
-				<div><label for="format1" class="cbcontainer"><input type="radio" name="format" id="format1" value="l" checked="" onclick="showHideGrade();"><span class="rbmark"></span>Letter</label></div>
-				<div><label for="format2" class="cbcontainer"><input type="radio" name="format" id="format2" value="p" onclick="showHideGrade();"><span class="rbmark"></span>Percentage</label></div>
-				<div><label for="format3" class="cbcontainer"><input type="radio" name="format" id="format3" value="v" onclick="showHideGrade();"><span class="rbmark"></span>Point Value</label></div>
-			</td></tr>
-			<tr><td colspan="2">
-				<label for="prior" class="cbcontainer"><input type="checkbox" name="prior" id="prior" onchange="changePrior();" value="1"><span class="cbmark"></span>Add GPA of prior semesters</label>
-			</td></tr>
-			<tr><td colspan="2">
-				<label for="group" class="cbcontainer"><input type="checkbox" name="group" id="group" value="1" onclick="groupSemester();"><span class="cbmark"></span>Group courses into semesters</label>
-			</td></tr>
-		</tbody></table>
-</div>
-<input name="printit" value="0" type="hidden"><input type="hidden" name="ftype" value="1"><input type="hidden" name="sc" value="1" style="display: none;">
-<table align="center" style="padding-top:8px;"><tbody><tr>
-	<td><input type="submit" name="x" value="Calculate"></td>
-	<td><input type="button" value="Clear" onclick="clearForm(document.gpaform);"></td>
-	<td>&nbsp; <a href="#" onclick="document.getElementById('gpasettings').style.display='block';return false;"><b>Settings</b></a></td>
-</tr></tbody></table>
 
-</td></tr></tbody></table></form>
+    print(classes)
+    y = 0
+    while (y <=5):
+        grade = input("Enter Your Grade For Each Class Listed in Order (Letter Form): ")
+        grade = grade.upper()
+        grades.append(grade)
+        y = y + 1
+    calculate()
+
+def calculate():
+    total= 0
+    for element in grades:
+        if element == "A":
+            total = total + 4.0
+        elif element == "B":
+            total = total + 3.0
+        elif element == "C":
+            total = total + 2.0
+        elif element == "D":
+            total = total + 1.0
+        else:
+            total = total + 0.0
+      
+    gpa = total / classes
+    print(gpa)
+
+
+collect()
+# Honors Class
+#Lists 
+classes= []
+grades = []
+
+#Collects the data of Class names and Grades in Letter Form
+def collect():
+    i = 0
+    while (i <= 5):
+        className = input("Enter Class Name: ")
+        classes.append(className)
+        i = i +1
+
+
+    print(classes)
+    y = 0
+    while (y <=5):
+        grade = input("Enter Your Grade For Each Class Listed in Order (Letter Form): ")
+        grade = grade.upper()
+        grades.append(grade)
+        y = y + 1
+    calculate()
+
+def calculate():
+    total= 0
+    for element in grades:
+        if element == "A":
+            total = total + 4.5
+        elif element == "B":
+            total = total + 3.5
+        elif element == "C":
+            total = total + 2.5
+        elif element == "D":
+            total = total + 1.5
+        else:
+            total = total + 0.0
+      
+    gpa = total / classes
+    print(gpa)
+
+
+collect()
+# AP Class
+#Lists 
+classes= []
+grades = []
+
+#Collects the data of Class names and Grades in Letter Form
+def collect():
+    i = 0
+    while (i <= 5):
+        className = input("Enter Class Name: ")
+        classes.append(className)
+        i = i +1
+
+
+    print(classes)
+    y = 0
+    while (y <=5):
+        grade = input("Enter Your Grade For Each Class Listed in Order (Letter Form): ")
+        grade = grade.upper()
+        grades.append(grade)
+        y = y + 1
+    calculate()
+
+def calculate():
+    total= 0
+    for element in grades:
+        if element == "A":
+            total = total + 5.0
+        elif element == "B":
+            total = total + 4.0
+        elif element == "C":
+            total = total + 3.0
+        elif element == "D":
+            total = total + 2.0
+        else:
+            total = total + 0.0
+      
+    gpa = total / classes
+    print(gpa)
+
+
+collect()
