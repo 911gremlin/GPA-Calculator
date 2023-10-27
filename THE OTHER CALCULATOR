@@ -26,7 +26,7 @@ def calculate_gpa(grades, credit_hours):
 
     gpa = total_quality_points / total_credit_hours
     return gpa
-def main = 0
+def main():
     grades = []
     credit_hours = []
 
@@ -48,5 +48,5 @@ def main = 0
     print("Your GPA is: {:.2f}".format(gpa))
 
 if __name__ == "__main__":
-	print(main())
+	print(main)
 
