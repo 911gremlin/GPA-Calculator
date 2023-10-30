@@ -1,4 +1,9 @@
-  # CP Classes
+with open('major.gpa.txt', "r") as f:
+    for x in f:
+        x = x.split()
+        print(x)
+  
+# CP Classes
 def calculate_gpa(grades, credit_hours):
       total_quality_points = 0
       total_credit_hours = 0
