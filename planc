@@ -1,6 +1,6 @@
 with open('major.gpa.txt', "r") as f:
     for x in f:
-        f = x.split()
+        x = x.split()
         print(x)
   
 # CP Classes
