@@ -1,5 +1,6 @@
+with open('major.gpa.txt'):
 # Function to calculate GPA
-def calculate_gpa(grades, credit_hours):
+  def calculate_gpa(grades, credit_hours):
     total_quality_points = 0
     total_credit_hours = 0
 
@@ -48,5 +49,4 @@ def main():
     print("Your GPA is: {:.2f}".format(gpa))
 
 if __name__ == "__main__":
-	print(main)
-
+  print(main)
