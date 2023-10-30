@@ -1,0 +1,74 @@
+#CP Classes
+ for i in range(len(grades)):
+        grade = grades[i]
+        credit_hour = credit_hours[i]
+
+        if grade == 'A':
+            quality_points = 4.0
+        elif grade == 'B':
+            quality_points = 3.0
+        elif grade == 'C':
+            quality_points = 2.0
+        elif grade == 'D':
+            quality_points = 1.0
+        else:
+            quality_points = 0.0
+
+        total_quality_points += quality_points * credit_hour
+        total_credit_hours += credit_hour
+
+    if total_credit_hours == 0:
+        return 0  
+
+    gpa = total_quality_points / total_credit_hours
+    return gpa
+#Honors Classes
+if grade == 'A':
+  quality_points = 4.5
+elif grade == 'B':
+  quality_points = 3.5
+elif grade == 'C':
+  quality_points = 2.5
+elif grade == 'D':
+  quality_points = 1.5
+else:
+  quality_points = 0.0
+
+total_quality_points += quality_points * credit_hour
+total_credit_hours += credit_hour
+
+if total_credit_hours == 0:
+    return 0  
+
+gpa = total_quality_points / total_credit_hours
+return gpa
+#AP Classes
+if grade == 'A':
+  quality_points = 5.0
+elif grade == 'B':
+  quality_points = 4.0
+elif grade == 'C':
+  quality_points = 3.0
+elif grade == 'D':
+  quality_points = 2.0
+else:
+  quality_points = 0.0
+
+total_quality_points += quality_points * credit_hour
+total_credit_hours += credit_hour
+
+if total_credit_hours == 0:
+    return 0  
+
+gpa = total_quality_points / total_credit_hours
+return gpa
+def main():
+    grades = []
+    credit_hours = []
+    if not grades:
+
+    gpa = calculate_gpa(grades, credit_hours)
+    print("Your GPA is: {:.2f}".format(gpa))
+
+if __name__ == "__main__":
+  print(main)
